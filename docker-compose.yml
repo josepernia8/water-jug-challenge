@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  api:
+    container_name: api
+    build:
+      context: ./api
+    environment:
+      - PORT=4000
+    volumes:
+      - ./api:/app
+      - /api/app/node_modules
+    command: npm run dev
+    ports:
+      - "4000:4000"
+  ui:
+    container_name: ui
+    build:
+      context: ./ui
+    environment:
+      SERVER_URL: http://api:4000
+    volumes:
+      - ./ui:/app
+      - /ui/app/node_modules
+    command: npm run dev
+    ports:
+      - 3000:3000

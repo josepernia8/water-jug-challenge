@@ -1,0 +1,7 @@
+**/Dockerfile
+**/npm-debug.log
+**/node_modules
+api/dist
+ui/.cache
+ui/build
+ui/public/build
